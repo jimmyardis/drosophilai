@@ -7,7 +7,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600&family=Libre+Caslon+Display&display=swap');
 :root{--paper:#f2ead8;--paper2:#e7dcc3;--ink:#171713;--night:#080b1a;--cyan:#34e8ff;--mag:#f03cff;--violet:#805cff;--green:#7dffb2}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f7f3e9;color:var(--ink);font-family:Inter,Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:clip}body{margin:0;background:#f7f3e9;color:var(--ink);font-family:Inter,Arial,sans-serif;overflow-x:clip}
 a{color:inherit;text-decoration:none}.mono{font-family:"DM Mono",monospace}.serif{font-family:"Libre Caslon Display",Georgia,serif}
 nav{position:absolute;z-index:20;top:0;left:0;width:100%;display:flex;align-items:center;justify-content:space-between;padding:26px 38px;color:#f5f0e5}
 .brand{font:400 24px/1 "Libre Caslon Display",Georgia,serif;letter-spacing:.02em}.brand b{font-family:"DM Mono";font-weight:400;color:var(--cyan)}
@@ -30,15 +30,48 @@ nav{position:absolute;z-index:20;top:0;left:0;width:100%;display:flex;align-item
 .wires path:nth-child(2){animation-delay:-1.2s}.wires path:nth-child(3){animation-delay:-2.1s}.wires path:nth-child(4){animation-delay:-3s}
 @keyframes pulse{0%,100%{opacity:.12;stroke-dashoffset:0}50%{opacity:.95;stroke-dashoffset:-35}}
 .scan{position:absolute;z-index:6;top:12%;bottom:10%;left:51%;width:1px;background:linear-gradient(transparent,var(--cyan),transparent);box-shadow:0 0 18px var(--cyan);opacity:.5;animation:scan 7s ease-in-out infinite}@keyframes scan{0%,100%{transform:translateX(-160px);opacity:0}15%,85%{opacity:.55}50%{transform:translateX(160px)}}
-.micro{position:absolute;z-index:7;font:300 9px/1.6 "DM Mono";letter-spacing:.08em;color:#8bb9c6;opacity:.65}.m1{left:4%;bottom:13%}.m2{right:5%;bottom:13%;text-align:right}
-.hero-title{position:absolute;z-index:10;left:50%;bottom:8%;transform:translateX(-50%);text-align:center;white-space:nowrap}.hero-title h1{margin:0;font:400 clamp(50px,7vw,105px)/.9 "Libre Caslon Display",Georgia,serif;letter-spacing:-.035em}.hero-title h1 b{font-family:"DM Mono";font-weight:300;color:#d8fbff;text-shadow:0 0 20px rgba(52,232,255,.45)}.hero-title p{margin:18px 0 0;font:300 10px/1 "DM Mono";letter-spacing:.32em;text-transform:uppercase;color:#a9b6be}
+.scrim{position:absolute;z-index:8;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(6,9,20,.78) 0,rgba(6,9,20,.18) 18%,rgba(6,9,20,0) 40%,rgba(6,9,20,.55) 72%,rgba(6,9,20,.92) 92%,#080b1a 100%)}
+.micro{position:absolute;z-index:9;font:300 9px/1.6 "DM Mono";letter-spacing:.08em;color:#a8d4e0;opacity:.8}.m1{left:4%;bottom:13%}.m2{right:5%;bottom:13%;text-align:right}
+.hero-title{position:absolute;z-index:10;left:50%;bottom:8%;transform:translateX(-50%);text-align:center;white-space:nowrap}.hero-title h1{margin:0;font:400 clamp(40px,10.5vw,105px)/.9 "Libre Caslon Display",Georgia,serif;letter-spacing:-.035em;text-shadow:0 2px 26px rgba(6,9,20,.85)}.hero-title h1 b{font-family:"DM Mono";font-weight:300;color:#d8fbff;text-shadow:0 0 20px rgba(52,232,255,.55),0 2px 26px rgba(6,9,20,.8)}.hero-title p{margin:18px 0 0;font:400 clamp(9px,2.6vw,10px)/1.5 "DM Mono";letter-spacing:.28em;text-transform:uppercase;color:#dcf1f8;text-shadow:0 1px 14px rgba(6,9,20,.9)}
 .intro{padding:120px 7vw 110px;display:grid;grid-template-columns:.8fr 1.6fr;gap:8vw;border-bottom:1px solid #cbc2ae}.eyebrow{font:400 10px/1 "DM Mono";letter-spacing:.18em;text-transform:uppercase}.intro h2{font:400 clamp(42px,5vw,76px)/1.02 "Libre Caslon Display",Georgia,serif;margin:0;max-width:1000px}.intro h2 em{font-style:normal;background:linear-gradient(90deg,#553cc8,#a12791);-webkit-background-clip:text;color:transparent}
 .pipeline{background:var(--paper);padding:100px 7vw}.pipeline-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:70px}.pipeline h3,.lab h3{font:400 clamp(34px,4vw,60px)/1 "Libre Caslon Display",Georgia,serif;margin:8px 0}.pipeline-head p{max-width:460px;font-size:14px;line-height:1.7;color:#625e53}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #a9a18f;border-bottom:1px solid #a9a18f}.step{min-height:290px;padding:25px;border-right:1px solid #a9a18f;position:relative}.step:last-child{border:0}.num{font:10px "DM Mono";opacity:.6}.icon{font:400 64px "Libre Caslon Display";margin:38px 0 24px}.step h4{font:500 12px "DM Mono";letter-spacing:.1em;text-transform:uppercase}.step p{font-size:13px;line-height:1.65;color:#686254}
-.dark{background:#0a0d18;color:#eee;padding:110px 7vw}.dark-grid{display:grid;grid-template-columns:1fr 1fr;gap:8vw}.dark h3{font:400 clamp(40px,5vw,72px)/1 "Libre Caslon Display";margin:0 0 28px}.dark p{font-size:15px;line-height:1.8;color:#aeb2b9;max-width:600px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:#2a2f3d}.fact{background:#0a0d18;padding:35px}.fact strong{display:block;font:300 36px "DM Mono";color:#c6fbff}.fact span{font:10px "DM Mono";letter-spacing:.1em;text-transform:uppercase;color:#777f91}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid #a9a18f;border-bottom:1px solid #a9a18f}.step{min-height:290px;padding:25px;border-right:1px solid #a9a18f;position:relative;min-width:0}.step:last-child{border:0}.num{font:10px "DM Mono";opacity:.6}.icon{font:400 64px "Libre Caslon Display";margin:38px 0 24px}.step h4{font:500 12px "DM Mono";letter-spacing:.1em;text-transform:uppercase}.step p{font-size:13px;line-height:1.65;color:#686254}
+.dark{background:#0a0d18;color:#eee;padding:110px 7vw}.dark-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8vw}.dark-grid>*{min-width:0}.dark h3{font:400 clamp(40px,5vw,72px)/1 "Libre Caslon Display";margin:0 0 28px}.dark p{font-size:15px;line-height:1.8;color:#aeb2b9;max-width:600px}.facts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1px;background:#2a2f3d}.fact{background:#0a0d18;padding:35px;min-width:0}.fact strong{display:block;font:300 clamp(27px,7vw,36px) "DM Mono";color:#c6fbff}.fact span{font:10px "DM Mono";letter-spacing:.1em;text-transform:uppercase;color:#777f91}
 .lab{padding:110px 7vw 130px}.labtop{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}.status{font:10px "DM Mono";letter-spacing:.12em;border:1px solid #a8a08d;border-radius:30px;padding:9px 13px}.experiment{min-height:420px;border:1px solid #a8a08d;background:#ede5d4;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.experiment:before{content:"";position:absolute;inset:0;background-image:radial-gradient(#9f9684 1px,transparent 1px);background-size:24px 24px;opacity:.22}.expcenter{position:relative;text-align:center;padding:40px}.expcenter .x{font:300 80px "DM Mono";opacity:.18}.expcenter h4{font:400 clamp(30px,4vw,56px) "Libre Caslon Display";margin:8px}.expcenter p{font:12px/1.7 "DM Mono";color:#6a6459;max-width:520px;margin:auto}
 footer{background:#11120f;color:#e9e2d4;padding:50px 7vw;display:flex;justify-content:space-between;align-items:end}footer .brand{font-size:28px}footer p{font:9px/1.6 "DM Mono";color:#888;letter-spacing:.08em;text-align:right}
-@media(max-width:800px){nav{padding:22px}.navlinks{display:none}.hero{min-height:720px}.hero-pair{grid-template-columns:1fr}.hero-panel{position:absolute;inset:0}.hero-panel.left{clip-path:polygon(0 0,100% 0,72% 100%,0 100%)}.hero-panel.right{clip-path:polygon(68% 0,100% 0,100% 100%,38% 100%);opacity:.78}.hero-panel.left img{object-position:42% center}.hero-panel.right img{object-position:54% center}.seam{left:63%;width:28%;transform:skewX(-8deg)}.wires{left:48%;width:38%}.hero-title{bottom:12%}.intro,.dark-grid{grid-template-columns:1fr}.intro{gap:35px}.pipeline-head{display:block}.steps{grid-template-columns:1fr 1fr}.step:nth-child(2){border-right:0}.step{border-bottom:1px solid #a9a18f}.labtop{display:block}.status{display:inline-block;margin-top:18px}}
+@media(max-width:800px){
+nav{padding:20px 22px}.navlinks{display:none}.brand{text-shadow:0 1px 16px rgba(6,9,20,.9)}
+/* Portrait hero: the two plates stack as full-width bands and are shown whole
+   (contain, not cover) against backgrounds matching their own paper/navy, so
+   nothing is cropped and the letterboxing is invisible. */
+.hero{height:100svh;min-height:560px;max-height:940px}
+.hero:after{background:radial-gradient(circle at 50% 42%,transparent 0 46%,rgba(8,11,26,.55) 100%)}
+.hero-pair{grid-template-columns:1fr;grid-template-rows:0.92fr 1.08fr}
+.hero-panel{position:relative;inset:auto}
+.hero-panel img{object-fit:contain}
+.hero-panel.left{background:#efe6cf}.hero-panel.left img{object-position:50% 52%}
+.hero-panel.right{background:#05081a;opacity:1}.hero-panel.right img{object-position:50% 24%}
+/* The source plate is itself cropped at its right edge, so fade that edge into
+   the paper rather than letting it end on a hard cut. */
+.hero-panel.left:after{background:linear-gradient(90deg,transparent 78%,rgba(242,236,223,.92) 98%)}
+.hero-panel.right:after{background:none}
+.seam{left:0;top:46%;bottom:auto;width:100%;height:1px;transform:none;mix-blend-mode:normal;background:linear-gradient(90deg,transparent,rgba(52,232,255,.9) 25%,rgba(240,60,255,.9) 75%,transparent);box-shadow:0 0 24px rgba(52,232,255,.55)}
+.wires{left:8%;top:33%;width:84%;height:30%}
+.scan{top:20%;bottom:auto;height:34%;left:50%}
+.scrim{background:linear-gradient(180deg,rgba(6,9,20,.82) 0,rgba(6,9,20,.1) 14%,rgba(6,9,20,0) 34%,rgba(6,9,20,.5) 62%,rgba(6,9,20,.93) 84%,#080b1a 100%)}
+.hero-title{bottom:7%;white-space:normal;width:92%}
+.hero-title p{margin-top:14px;letter-spacing:.2em}
+.m2{display:none}.m1{left:0;right:0;top:auto;bottom:calc(7% + 88px);text-align:center;line-height:1.7}
+.intro,.dark-grid{grid-template-columns:minmax(0,1fr)}.intro{gap:35px;padding:90px 7vw 80px}
+.dark{padding:90px 7vw}.dark-grid{gap:48px}
+.pipeline-head{display:block}
+.steps{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.step:nth-child(2){border-right:0}.step{border-bottom:1px solid #a9a18f;min-height:240px;padding:22px}
+.fact{padding:26px 20px}
+.labtop{display:block}.status{display:inline-block;margin-top:18px}
+footer{display:block}footer p{text-align:left;margin-top:22px}
+}
+/* Two step columns leave only ~125px of text on a phone — stack them instead. */
+@media(max-width:560px){.steps{grid-template-columns:minmax(0,1fr)}.step{border-right:0;min-height:0;padding:26px 2px}.step:last-child{border-bottom:0}.icon{font-size:48px;margin:16px 0 14px}.step p{max-width:42ch}}
 </style>
 </head>
 <body>
@@ -56,7 +89,7 @@ footer{background:#11120f;color:#e9e2d4;padding:50px 7vw;display:flex;justify-co
  <path stroke="#7dffb2" d="M15 190 C92 170 100 110 160 160 S220 220 286 188"/>
  <path stroke="#805cff" d="M20 410 C85 335 120 420 180 370 S230 390 290 405"/>
 </svg>
-<div class="scan"></div><div class="micro m1">SPECIMEN / D. MELANOGASTER<br>ANATOMICAL SYSTEM ↔ COMPUTATIONAL SYSTEM</div><div class="micro m2">CONNECTOME SIGNAL / LIVE<br>NEURAL TOPOLOGY / 139K+ NODES</div>
+<div class="scan"></div><div class="scrim" aria-hidden="true"></div><div class="micro m1">SPECIMEN / D. MELANOGASTER<br>ANATOMICAL SYSTEM ↔ COMPUTATIONAL SYSTEM</div><div class="micro m2">CONNECTOME SIGNAL / LIVE<br>NEURAL TOPOLOGY / 139K+ NODES</div>
 <div class="hero-title"><h1>Drosophil·<b>AI</b></h1><p>Biological hardware / alien problems</p></div>
 </header>
 
@@ -70,7 +103,7 @@ footer{background:#11120f;color:#e9e2d4;padding:50px 7vw;display:flex;justify-co
 <div class="step"><span class="num">04 / READ</span><div class="icon">→</div><h4>Action</h4><p>Selected neural activity is decoded into movement, choice, control—or simply measured.</p></div>
 </div></section>
 
-<section class="dark"><div class="dark-grid"><div><span class="eyebrow">Why the fly?</span><h3>Small enough to map.<br>Complex enough to surprise us.</h3><p>Drosophila has been one of biology's great model organisms for more than a century. Whole-brain connectomics gives us a new kind of object to experiment with: an evolution-designed neural architecture whose circuitry can be stimulated, perturbed, compared and connected to unfamiliar environments.</p><p class="mono" style="font-size:10px;color:#5f8291">Not a digital fly. Not a tiny consciousness in a laptop. A computational model grounded in biological wiring—and a laboratory for asking what that wiring can do.</p></div><div class="facts"><div class="fact"><strong>139K+</strong><span>mapped neurons</span></div><div class="fact"><strong>~50M</strong><span>synaptic contacts</span></div><div class="fact"><strong>∞</strong><span>strange questions</span></div><div class="fact"><strong>01</strong><span>experiment pending</span></div></div></div></section>
+<section class="dark"><div class="dark-grid"><div><span class="eyebrow">Why the fly?</span><h3>Small enough to map.<br>Complex enough to surprise us.</h3><p>Drosophila has been one of biology's great model organisms for more than a century. Whole-brain connectomics gives us a new kind of object to experiment with: an evolution-designed neural architecture whose circuitry can be stimulated, perturbed, compared and connected to unfamiliar environments.</p><p class="mono" style="font-size:10px;color:#8cb4c4">Not a digital fly. Not a tiny consciousness in a laptop. A computational model grounded in biological wiring—and a laboratory for asking what that wiring can do.</p></div><div class="facts"><div class="fact"><strong>139K+</strong><span>mapped neurons</span></div><div class="fact"><strong>~50M</strong><span>synaptic contacts</span></div><div class="fact"><strong>∞</strong><span>strange questions</span></div><div class="fact"><strong>01</strong><span>experiment pending</span></div></div></div></section>
 
 <section class="lab" id="lab"><div class="labtop"><div><span class="eyebrow">The laboratory</span><h3>Experiment 001</h3></div><span class="status">● IN DEVELOPMENT</span></div><div class="experiment"><div class="expcenter"><div class="x">?</div><h4>What should we ask first?</h4><p>THE FIRST EXPERIMENT IS DELIBERATELY OPEN. THE LAB IS BEING BUILT BEFORE THE QUESTION IS LOCKED.</p></div></div></section>
 <footer><div class="brand">Drosophil·<b>AI</b></div><p>AN INDEPENDENT EXPERIMENTAL PLAYGROUND<br>FOR BIOLOGICAL NEURAL ARCHITECTURES.</p></footer>
